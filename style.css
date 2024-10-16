@@ -49,3 +49,36 @@ model-viewer {
     visibility: hidden;
     transition: visibility 2s, opacity 1s 1s;
 }
+
+#prediction {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+/* Стили для треугольника */
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid blue;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+}
+
+.triangle span {
+    position: absolute;
+    top: -60px;
+    text-align: center;
+}
