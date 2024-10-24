@@ -11,7 +11,7 @@
 
 <body>
     <model-viewer id="model-viewer" src="models/Magic_8_Ball.glb" alt="A 3D model of magic 8 ball"
-        ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral" camera-controls touch-action="none"
+        ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral" touch-action="none"
         shadow-intensity="1" min-camera-orbit="auto auto 5%" ar>
 
         <button id="ar-button" slot="ar-button">AR-режим</button>
@@ -20,7 +20,7 @@
     </model-viewer>
 
     <div id="input-section">
-        <input type="text" id="question" placeholder="Задайте вопрос...">
+        <input type="text" id="question" placeholder="Задайте вопрос здесь...">
         <div id="buttons">
             <button class="btn clear" onclick="clearInput()">Очистить</button>
             <button class="btn ask" onclick="askQuestion()">Спросить</button>
