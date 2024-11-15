@@ -11,8 +11,8 @@
 
 <body>
     <model-viewer id="model-viewer" src="models/Snake_ver_6(with_plane).glb" alt="A 3D model of snake 8 ball"
-        ar-modes="scene-viewer quick-look" ar-scale="auto" camera-controls tone-mapping="neutral" touch-action="none"
-        shadow-intensity="0" camera-orbit="0deg 75deg 1.2m" scale="2 2 2" field-of-view="10deg" autoplay animation-name="Snake.Start" ar>
+        ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral" touch-action="none"
+        shadow-intensity="0" camera-orbit="0deg 75deg 1.2m" scale="6 6 6" field-of-view="10deg" autoplay animation-name="Snake.Start" ar>
 
         <button id="ar-button" slot="ar-button">AR-режим</button>
         <div id="error" class="hide">AR is not supported on this device</div>
@@ -40,7 +40,7 @@
 
             // Функция для загрузки текстуры и сохранения её в указанный словарь с индексом
             const loadTexture = async (dictionary, index, filePath) => {
-                const texture = await modelViewer2.createTexture(filePath);
+                const texture = await modelViewer.createTexture(filePath);
                 dictionary[index] = texture;
             };
             // Загрузка текстур и сохранение их по индексу в соответствующие словари
