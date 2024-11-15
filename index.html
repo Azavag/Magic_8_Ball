@@ -31,7 +31,7 @@
         <div id="answer"></div>
     </div>
 
-    <script type="module">
+    <script>
         const modelViewer = document.querySelector("model-viewer");
         let baseColorTextures = {};  // Словарь для хранения baseColor текстур
         let emissionTextures = {};
@@ -67,8 +67,7 @@
                 console.log('AR режим завершён');
             }
         });
-    </script>
-    <script>
+
         const answers = [
             "Принимай решения сердцем, пусть тебе и кажется, что это костыли",
             "Автоматизируй свои внутренние системы и тогда все будет сильно проще",
@@ -109,12 +108,12 @@
             console.log(randomNumber);
             const randomAnswer = answers[randomNumber];
             applyTexture(baseColorTextures, 'baseColor', randomNumber);
+            applyTexture(emissionTextures, 'emission', randomNumber);
 
             document.getElementById("answer").textContent = randomAnswer;
             document.getElementById("question").value = "";
 
-            // Проигрывание анимации шара
-            const modelViewer = document.getElementById("model-viewer");
+            // Проигрывание анимации шара           
             modelViewer.animationName = "Snake.BallCatching";
             modelViewer.pause(); // Перезапускаем анимацию
             modelViewer.currentTime = 0;
