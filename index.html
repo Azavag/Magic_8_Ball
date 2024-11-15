@@ -12,8 +12,8 @@
 <body>
     <model-viewer id="model-viewer" src="models/Snake_ver_6(with_plane).glb" ios-src="models/Snake_ios_ver1.usdz"
         alt="A 3D model of snake 8 ball" ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral"
-        touch-action="none" shadow-intensity="0" camera-orbit="0deg 75deg 1m" camera-target="1.42 1.98 0.74" scale="1 1 1" field-of-view="10deg"
-        autoplay animation-name="Snake.Start" ar>
+        touch-action="none" shadow-intensity="0" camera-orbit="0deg 75deg 1m" camera-target="1.42 1.98 0.74"
+        scale="1 1 1" field-of-view="10deg" ar>
 
         <button id="ar-button" slot="ar-button">AR-режим</button>
         <div id="error" class="hide">AR is not supported on this device</div>
@@ -48,14 +48,6 @@
                 const texture = await modelViewer.createTexture(filePath);
                 dictionary[index] = texture;
             };
-            // // Загрузка текстур и сохранение их по индексу в соответствующие словари
-            // await loadTexture(baseColorTextures, 0, 'textures/Textures_gologram_ver2/Gologram-1/1gologram_low_Gologram-1_BaseColor.png');
-            // await loadTexture(baseColorTextures, 1, 'textures/Textures_gologram_ver2/Gologram-2/2gologram_low_Gologram-1_BaseColor.png');
-            // await loadTexture(baseColorTextures, 14, 'textures/Textures_gologram_ver2/Gologram-NG/NGgologram_low_Gologram-1_BaseColor.png');
-
-            // await loadTexture(emissionTextures, 0, 'textures/Textures_gologram_ver2/Gologram-1/1gologram_low_Gologram-1_Emissive.png');
-            // await loadTexture(emissionTextures, 1, 'textures/Textures_gologram_ver2/Gologram-2/2gologram_low_Gologram-1_Emissive.png');
-            // await loadTexture(emissionTextures, 14, 'textures/Textures_gologram_ver2/Gologram-NG/NGgologram_low_Gologram-1_Emissive.png');
 
             // Загрузка текстур
             await Promise.all([
@@ -90,9 +82,12 @@
                 loadTexture(emissionTextures, 13, 'textures/Textures_gologram_ver2/Gologram-14/14gologram_low_Gologram-1_Emissive.png'),
             ]);
 
-            // Пример применения текстур по индексу
-            // applyTexture(emissionTextures, 'emission', 2);    // Применение emission текстуры с индексом 2ы
+            console.log(modelViewer.availableAnimations);
+            modelViewer.animationName = currentAnimation;
+            modelViewer.play();
+
         });
+
 
         modelViewer.addEventListener('ar-status', (event) => {
             if (event.detail.status === 'session-started') {
