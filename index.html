@@ -12,7 +12,8 @@
 <body>
     <model-viewer id="model-viewer" src="models/Snake_ver_6(with_plane).glb" alt="A 3D model of snake 8 ball"
         ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral" touch-action="none"
-        shadow-intensity="0" camera-orbit="0deg 75deg 1m" scale="1 1 1" field-of-view="10deg" autoplay animation-name="Snake.Start" ar>
+        shadow-intensity="0" camera-orbit="0deg 75deg 1m" scale="1 1 1" field-of-view="10deg" autoplay
+        animation-name="Snake.Idle" ar>
 
         <button id="ar-button" slot="ar-button">AR-режим</button>
         <div id="error" class="hide">AR is not supported on this device</div>
@@ -62,7 +63,7 @@
                 }
             };
             // Пример применения текстур по индексу
-             applyTexture(baseColorTextures, 'baseColor', 1);  // Применение baseColor текстуры с индексом 1
+            applyTexture(baseColorTextures, 'baseColor', 1);  // Применение baseColor текстуры с индексом 1
             // applyTexture(emissionTextures, 'emission', 2);    // Применение emission текстуры с индексом 2ы
         });
     </script>
@@ -97,6 +98,7 @@
 
             // Проигрывание анимации шара
             const modelViewer = document.getElementById("model-viewer");
+            modelViewer.animationName="Snake.BallCatching";
             modelViewer.pause(); // Перезапускаем анимацию
             modelViewer.currentTime = 0;
             modelViewer.play();
