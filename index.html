@@ -54,20 +54,22 @@
             await loadTexture(emissionTextures, 1, 'textures/Textures_gologram_ver2/Gologram-2/2gologram_low_Gologram-1_Emissive.png');
             await loadTexture(emissionTextures, 14, 'textures/Textures_gologram_ver2/Gologram-NG/NGgologram_low_Gologram-1_Emissive.png');
 
-            // Функция для применения текстуры из словаря по индексу к материалу
-            const applyTexture = (dictionary, channel, index) => {
-                const texture = dictionary[index];
-                if (!texture) return;
 
-                if (channel === 'baseColor') {
-                    material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
-                } else if (channel === 'emission') {
-                    material.emissiveTexture.setTexture(texture);
-                }
-            };
             // Пример применения текстур по индексу
             // applyTexture(emissionTextures, 'emission', 2);    // Применение emission текстуры с индексом 2ы
         });
+
+        // Функция для применения текстуры из словаря по индексу к материалу
+        function applyTexture(dictionary, channel, index) {
+            const texture = dictionary[index];
+            if (!texture) return;
+
+            if (channel === 'baseColor') {
+                material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
+            } else if (channel === 'emission') {
+                material.emissiveTexture.setTexture(texture);
+            }
+        };
 
         modelViewer.addEventListener('ar-status', (event) => {
             if (event.detail.status === 'session-started') {
