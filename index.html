@@ -12,7 +12,7 @@
 <body>
     <model-viewer id="model-viewer" src="models/Snake_ver_6(with_plane).glb" alt="A 3D model of snake 8 ball"
         ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral" touch-action="none"
-        shadow-intensity="0" camera-orbit="0deg 75deg 1m" scale="200 200 200" field-of-view="10deg" autoplay animation-name="Snake.Start" ar>
+        shadow-intensity="0" camera-orbit="0deg 75deg 1m" scale="1 1 1" field-of-view="10deg" autoplay animation-name="Snake.Start" ar>
 
         <button id="ar-button" slot="ar-button">AR-режим</button>
         <div id="error" class="hide">AR is not supported on this device</div>
@@ -36,6 +36,7 @@
         let emissionTextures = {};
 
         modelViewer.addEventListener("load", async () => {
+            modelViewer.scale = '5 5 5';
             const material = modelViewer.model.materials[1];
 
             // Функция для загрузки текстуры и сохранения её в указанный словарь с индексом
