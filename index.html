@@ -58,7 +58,7 @@
             // Пример применения текстур по индексу
             // applyTexture(emissionTextures, 'emission', 2);    // Применение emission текстуры с индексом 2ы
         });
-     
+
         modelViewer.addEventListener('ar-status', (event) => {
             if (event.detail.status === 'session-started') {
                 console.log('Переход в AR режим начат');
@@ -67,9 +67,7 @@
                 console.log('AR режим завершён');
             }
         });
-    </script>
-
-    <script>
+        
         const answers = [
             "Принимай решения сердцем, пусть тебе и кажется, что это костыли",
             "Автоматизируй свои внутренние системы и тогда все будет сильно проще",
@@ -87,8 +85,8 @@
             "Ты внедришь в свою жизнь самый лучший проект. Все изменится к лучшему!",
         ];
 
-         // Функция для применения текстуры из словаря по индексу к материалу
-         function applyTexture(dictionary, channel, index) {
+        // Функция для применения текстуры из словаря по индексу к материалу
+        function applyTexture(dictionary, channel, index) {
             const texture = dictionary[index];
             if (!texture) return;
 
