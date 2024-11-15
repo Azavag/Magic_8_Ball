@@ -58,19 +58,7 @@
             // Пример применения текстур по индексу
             // applyTexture(emissionTextures, 'emission', 2);    // Применение emission текстуры с индексом 2ы
         });
-
-        // Функция для применения текстуры из словаря по индексу к материалу
-        function applyTexture(dictionary, channel, index) {
-            const texture = dictionary[index];
-            if (!texture) return;
-
-            if (channel === 'baseColor') {
-                material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
-            } else if (channel === 'emission') {
-                material.emissiveTexture.setTexture(texture);
-            }
-        };
-
+     
         modelViewer.addEventListener('ar-status', (event) => {
             if (event.detail.status === 'session-started') {
                 console.log('Переход в AR режим начат');
@@ -98,6 +86,19 @@
             "Технология – это ценность. Твоя главная технология – ты сам. Все получится!",
             "Ты внедришь в свою жизнь самый лучший проект. Все изменится к лучшему!",
         ];
+
+         // Функция для применения текстуры из словаря по индексу к материалу
+         function applyTexture(dictionary, channel, index) {
+            const texture = dictionary[index];
+            if (!texture) return;
+
+            if (channel === 'baseColor') {
+                material.pbrMetallicRoughness.baseColorTexture.setTexture(texture);
+            } else if (channel === 'emission') {
+                material.emissiveTexture.setTexture(texture);
+            }
+        };
+
 
         function clearInput() {
             document.getElementById("question").value = "";
