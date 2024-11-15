@@ -35,10 +35,11 @@
         const modelViewer = document.querySelector("model-viewer");
         let baseColorTextures = {};  // Словарь для хранения baseColor текстур
         let emissionTextures = {};
+        let material;
 
         modelViewer.addEventListener("load", async () => {
             modelViewer.scale = '5 5 5';
-            const material = modelViewer.model.materials[1];
+            material = modelViewer.model.materials[1];
 
             // Функция для загрузки текстуры и сохранения её в указанный словарь с индексом
             const loadTexture = async (dictionary, index, filePath) => {
