@@ -13,12 +13,12 @@ html {
 
 
 #model-viewer {
-    width: 80vw;
+    width: 100vw;
     /* Занимает всю ширину экрана */
-    height: 80vh;
+    height: 70vh;
     /* Высота 60% */
     display: block;
-    max-width: 70%;
+    max-width: 100%;
     /* Устанавливает максимальную ширину */
     margin: 0 auto;
     /* Центрирует модель */

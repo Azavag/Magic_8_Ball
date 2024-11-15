@@ -10,10 +10,10 @@
 </head>
 
 <body>
-    <model-viewer id="model-viewer" src="models/Snake_ver_6(with_plane).glb" alt="A 3D model of snake 8 ball"
-        ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral" touch-action="none"
-        shadow-intensity="0" camera-orbit="0deg 75deg 1m" scale="1 1 1" field-of-view="10deg" autoplay
-        animation-name="Snake.Idle" ar>
+    <model-viewer id="model-viewer" src="models/Snake_ver_6(with_plane).glb" ios-src="models/Snake_ios_ver1.usdz"
+        alt="A 3D model of snake 8 ball" ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral"
+        touch-action="none" shadow-intensity="0" camera-orbit="0deg 75deg 1m" scale="1 1 1" field-of-view="10deg"
+        autoplay animation-name="Snake.Idle" ar>
 
         <button id="ar-button" slot="ar-button">AR-режим</button>
         <div id="error" class="hide">AR is not supported on this device</div>
@@ -46,10 +46,13 @@
                 dictionary[index] = texture;
             };
             // Загрузка текстур и сохранение их по индексу в соответствующие словари
-            await loadTexture(baseColorTextures, 1, 'textures/Textures_gologram_ver2/Gologram-1/1gologram_low_Gologram-1_BaseColor.png');
-            await loadTexture(baseColorTextures, 2, 'textures/Textures_gologram_ver2/Gologram-2/2gologram_low_Gologram-1_BaseColor.png');
-            await loadTexture(emissionTextures, 1, 'textures/Textures_gologram_ver2/Gologram-1/1gologram_low_Gologram-1_Emissive.png');
-            await loadTexture(emissionTextures, 2, 'textures/Textures_gologram_ver2/Gologram-2/2gologram_low_Gologram-1_Emissive.png');
+            await loadTexture(baseColorTextures, 0, 'textures/Textures_gologram_ver2/Gologram-1/1gologram_low_Gologram-1_BaseColor.png');
+            await loadTexture(baseColorTextures, 1, 'textures/Textures_gologram_ver2/Gologram-2/2gologram_low_Gologram-1_BaseColor.png');
+            await loadTexture(baseColorTextures, 14, 'textures/Textures_gologram_ver2/Gologram-NG/NGgologram_low_Gologram-1_BaseColor.png');
+
+            await loadTexture(emissionTextures, 0, 'textures/Textures_gologram_ver2/Gologram-1/1gologram_low_Gologram-1_Emissive.png');
+            await loadTexture(emissionTextures, 1, 'textures/Textures_gologram_ver2/Gologram-2/2gologram_low_Gologram-1_Emissive.png');
+            await loadTexture(emissionTextures, 14, 'textures/Textures_gologram_ver2/Gologram-NG/NGgologram_low_Gologram-1_Emissive.png');
 
             // Функция для применения текстуры из словаря по индексу к материалу
             const applyTexture = (dictionary, channel, index) => {
@@ -63,8 +66,16 @@
                 }
             };
             // Пример применения текстур по индексу
-            applyTexture(baseColorTextures, 'baseColor', 1);  // Применение baseColor текстуры с индексом 1
             // applyTexture(emissionTextures, 'emission', 2);    // Применение emission текстуры с индексом 2ы
+        });
+
+        modelViewer.addEventListener('ar-status', (event) => {
+            if (event.detail.status === 'session-started') {
+                console.log('Переход в AR режим начат');
+                applyTexture(baseColorTextures, 'baseColor', 14);
+            } else if (event.detail.status === 'session-ended') {
+                console.log('AR режим завершён');
+            }
         });
     </script>
 
@@ -92,13 +103,17 @@
         }
 
         function askQuestion() {
-            const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+            const randomNumber = Math.floor(Math.random() * 1);
+            console.log(randomNumber);
+            const randomAnswer = answers[randomNumber];
+            applyTexture(baseColorTextures, 'baseColor', randomNumber);
+
             document.getElementById("answer").textContent = randomAnswer;
             document.getElementById("question").value = "";
 
             // Проигрывание анимации шара
             const modelViewer = document.getElementById("model-viewer");
-            modelViewer.animationName="Snake.BallCatching";
+            modelViewer.animationName = "Snake.BallCatching";
             modelViewer.pause(); // Перезапускаем анимацию
             modelViewer.currentTime = 0;
             modelViewer.play();
