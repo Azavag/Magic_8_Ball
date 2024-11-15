@@ -37,7 +37,7 @@
         let emissionTextures = {};
         let material;
         // Хранение текущего состояния
-        let currentAnimation = "Snake.Idle";
+        let currentAnimation = "Snake.Start";
 
         modelViewer.addEventListener("load", async () => {
             modelViewer.scale = '5 5 5';
@@ -84,7 +84,8 @@
 
             console.log(modelViewer.availableAnimations);
             modelViewer.animationName = currentAnimation;
-            modelViewer.play({ repetitions: 1 });
+            await modelViewer.updateComplete;
+            modelViewer.play({ repetitions: 1 })
         });
 
         // Обработчик завершения анимации
