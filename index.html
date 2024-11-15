@@ -12,7 +12,7 @@
 <body>
     <model-viewer id="model-viewer" src="models/Snake_ver_6(with_plane).glb" ios-src="models/Snake_ios_ver1.usdz"
         alt="A 3D model of snake 8 ball" ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral"
-        touch-action="none" shadow-intensity="0" camera-orbit="0deg 75deg 1m" scale="1 1 1" field-of-view="10deg"
+        touch-action="none" shadow-intensity="0" camera-orbit="0deg 75deg 1m" camera-target="1.42 1.98 0.74" scale="1 1 1" field-of-view="10deg"
         autoplay animation-name="Snake.Start" ar>
 
         <button id="ar-button" slot="ar-button">AR-режим</button>
@@ -105,6 +105,8 @@
 
         // Обработчик завершения анимации
         modelViewer.addEventListener('animation-finished', () => {
+            console.log("Конец анимации");
+            console.log(currentAnimation);
             if (currentAnimation === "Snake.Start") {
                 // После завершения Snake.Start запускаем Snake.Idle
                 currentAnimation = "Snake.Idle";
