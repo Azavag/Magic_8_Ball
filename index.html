@@ -37,7 +37,7 @@
         let emissionTextures = {};
         let material;
         // Хранение текущего состояния
-        let currentAnimation = "Snake.Start";
+        let currentAnimation = "Snake.Idle";
 
         modelViewer.addEventListener("load", async () => {
             modelViewer.scale = '5 5 5';
@@ -84,28 +84,27 @@
 
             console.log(modelViewer.availableAnimations);
             modelViewer.animationName = currentAnimation;
-            modelViewer.play();
+            modelViewer.play({ repetitions: 1 });
+        });
 
-            // Обработчик завершения анимации
-            modelViewer.addEventListener("finished", (event) => {
-                console.log("Конец анимации");
-                console.log(currentAnimation);
-                if (currentAnimation === "Snake.Start") {
-                    // После завершения Snake.Start запускаем Snake.Idle
-                    currentAnimation = "Snake.Idle";
-                    modelViewer.animationName = currentAnimation;
-                    modelViewer.play();
+        // Обработчик завершения анимации
+        modelViewer.addEventListener('finished', (event) => {
+            console.log("Конец анимации");
+            console.log(currentAnimation);
+            if (currentAnimation === "Snake.Start") {
+                // После завершения Snake.Start запускаем Snake.Idle
+                currentAnimation = "Snake.Idle";
+                modelViewer.animationName = currentAnimation;
+                modelViewer.play();
 
-                    // Разблокируем кнопку действия
-                    // actionButton.disabled = false;
-                } else if (currentAnimation === "Snake.BallCatching") {
-                    // После Snake.BallCatching возвращаемся к Snake.Idle
-                    currentAnimation = "Snake.Idle";
-                    modelViewer.animationName = currentAnimation;
-                    modelViewer.play();
-                }
-            });
-
+                // Разблокируем кнопку действия
+                // actionButton.disabled = false;
+            } else if (currentAnimation === "Snake.BallCatching") {
+                // После Snake.BallCatching возвращаемся к Snake.Idle
+                currentAnimation = "Snake.Idle";
+                modelViewer.animationName = currentAnimation;
+                modelViewer.play();
+            }
         });
 
 
