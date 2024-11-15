@@ -86,6 +86,26 @@
             modelViewer.animationName = currentAnimation;
             modelViewer.play();
 
+            // Обработчик завершения анимации
+            modelViewer.addEventListener("finished", (event) => {
+                console.log("Конец анимации");
+                console.log(currentAnimation);
+                if (currentAnimation === "Snake.Start") {
+                    // После завершения Snake.Start запускаем Snake.Idle
+                    currentAnimation = "Snake.Idle";
+                    modelViewer.animationName = currentAnimation;
+                    modelViewer.play();
+
+                    // Разблокируем кнопку действия
+                    // actionButton.disabled = false;
+                } else if (currentAnimation === "Snake.BallCatching") {
+                    // После Snake.BallCatching возвращаемся к Snake.Idle
+                    currentAnimation = "Snake.Idle";
+                    modelViewer.animationName = currentAnimation;
+                    modelViewer.play();
+                }
+            });
+
         });
 
 
@@ -98,25 +118,7 @@
             }
         });
 
-        // Обработчик завершения анимации
-        modelViewer.addEventListener('finished', () => {
-            console.log("Конец анимации");
-            console.log(currentAnimation);
-            if (currentAnimation === "Snake.Start") {
-                // После завершения Snake.Start запускаем Snake.Idle
-                currentAnimation = "Snake.Idle";
-                modelViewer.animationName = currentAnimation;
-                modelViewer.play();
 
-                // Разблокируем кнопку действия
-                // actionButton.disabled = false;
-            } else if (currentAnimation === "Snake.BallCatching") {
-                // После Snake.BallCatching возвращаемся к Snake.Idle
-                currentAnimation = "Snake.Idle";
-                modelViewer.animationName = currentAnimation;
-                modelViewer.play();
-            }
-        });
 
         const answers = [
             "Принимай решения сердцем, пусть тебе и кажется, что это костыли",
