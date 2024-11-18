@@ -21,7 +21,7 @@ body {
 
 #model-viewer {
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     display: block;
     max-width: 100%;
     margin: 0;
@@ -40,13 +40,12 @@ body {
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
     transition: opacity 0.3s;
-}
-
-#error.hide {
+  }
+  #error.hide {
     opacity: 0;
     visibility: hidden;
     transition: visibility 2s, opacity 1s 1s;
-}
+  }
 
 #input-section {
     position: absolute;

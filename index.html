@@ -16,16 +16,29 @@
 
         <div id="input-section">
             <button id="ar-button" slot="ar-button" class="hidden">AR-режим</button>
+            <div id="error" class="hide">AR is not supported on this device</div>
             <input type="text" id="question" placeholder="Задайте вопрос здесь...">
             <div id="buttons">
                 <button class="btn clear" onclick="clearInput()">Очистить</button>
                 <button class="btn ask" onclick="askQuestion()">Спросить</button>
             </div>
         </div>
+
+        
     </model-viewer>
 
     <script>
         const modelViewer = document.querySelector("model-viewer");
+
+        modelViewer.addEventListener('ar-status', (event) => {
+          if(event.detail.status === 'failed'){
+            const error = document.querySelector("#error");
+            error.classList.remove('hide');
+            error.addEventListener('transitionend',(event) => {
+              error.classList.add('hide');
+            });
+          }
+        });
 
         let baseColorTextures = {};  // Словарь для хранения baseColor текстур
         let emissionTextures = {};
@@ -36,15 +49,15 @@
         modelViewer.addEventListener("load", async () => {
 
             // Проверяем поддержку AR
-            async function checkARSupport() {
-                const supportsAR = await modelViewer.canActivateAR;
-                if (supportsAR) {
-                    arButton.classList.remove("hidden"); // Показываем кнопку
-                }
-            }
+            // async function checkARSupport() {
+            //     const supportsAR = await modelViewer.canActivateAR;
+            //     if (supportsAR) {
+            //         arButton.classList.remove("hidden"); // Показываем кнопку
+            //     }
+            // }
 
-            // Вызываем функцию при загрузке страницы
-            checkARSupport();
+            // // Вызываем функцию при загрузке страницы
+            // checkARSupport();
 
 
             modelViewer.scale = '30 30 30';
