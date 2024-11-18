@@ -22,7 +22,7 @@
             <div id="buttons">
                 <button class="btn clear" onclick="clearInput()">Очистить</button>
                 <button class="btn ask" onclick="askQuestion()">Спросить</button>
-            </div>
+            </div>       
         </div>
     </model-viewer>
 
@@ -79,12 +79,10 @@
             ]);
 
             console.log(modelViewer.availableAnimations);
-
+            modelViewer.animationName = currentAnimation;
+            await modelViewer.updateComplete;
+            modelViewer.play({ repetitions: 1 })
         });
-
-        modelViewer.animationName = currentAnimation;
-        await modelViewer.updateComplete;
-        modelViewer.play({ repetitions: 1 })
 
         // Обработчик завершения анимации
         modelViewer.addEventListener('finished', (event) => {
