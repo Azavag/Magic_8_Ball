@@ -63,19 +63,19 @@
                 loadTexture(baseColorTextures, 13, 'textures/Textures_gologram_ver2/Gologram-14/14gologram_low_Gologram-1_BaseColor.png'),
 
                 loadTexture(emissionTextures, 0, 'textures/Textures_gologram_ver2/Gologram-1/1gologram_low_Gologram-1_Emissive.png'),
-                loadTexture(emissionTextures, 1, 'textures/Textures_gologram_ver2/Gologram-2/2gologram_low_Gologram-1_Emissive.png'),
-                loadTexture(emissionTextures, 2, 'textures/Textures_gologram_ver2/Gologram-3/3gologram_low_Gologram-1_Emissive.png'),
-                loadTexture(emissionTextures, 3, 'textures/Textures_gologram_ver2/Gologram-4/4gologram_low_Gologram-1_Emissive.png'),
-                loadTexture(emissionTextures, 4, 'textures/Textures_gologram_ver2/Gologram-5/5gologram_low_Gologram-1_Emissive.png'),
-                loadTexture(emissionTextures, 5, 'textures/Textures_gologram_ver2/Gologram-6/6gologram_low_Gologram-1_Emissive.png'),
-                loadTexture(emissionTextures, 6, 'textures/Textures_gologram_ver2/Gologram-7/7gologram_low_Gologram-1_Emissive.png'),
-                loadTexture(emissionTextures, 7, 'textures/Textures_gologram_ver2/Gologram-8/8gologram_low_Gologram-1_Emissive.png'),
-                loadTexture(emissionTextures, 8, 'textures/Textures_gologram_ver2/Gologram-9/9gologram_low_Gologram-1_Emissive.png'),
-                loadTexture(emissionTextures, 9, 'textures/Textures_gologram_ver2/Gologram-10/10gologram_low_Gologram-1_Emissive.png'),
-                loadTexture(emissionTextures, 10, 'textures/Textures_gologram_ver2/Gologram-11/11gologram_low_Gologram-1_Emissive.png'),
-                loadTexture(emissionTextures, 11, 'textures/Textures_gologram_ver2/Gologram-12/12gologram_low_Gologram-1_Emissive.png'),
-                loadTexture(emissionTextures, 12, 'textures/Textures_gologram_ver2/Gologram-13/13gologram_low_Gologram-1_Emissive.png'),
-                loadTexture(emissionTextures, 13, 'textures/Textures_gologram_ver2/Gologram-14/14gologram_low_Gologram-1_Emissive.png'),
+                // loadTexture(emissionTextures, 1, 'textures/Textures_gologram_ver2/Gologram-2/2gologram_low_Gologram-1_Emissive.png'),
+                // loadTexture(emissionTextures, 2, 'textures/Textures_gologram_ver2/Gologram-3/3gologram_low_Gologram-1_Emissive.png'),
+                // loadTexture(emissionTextures, 3, 'textures/Textures_gologram_ver2/Gologram-4/4gologram_low_Gologram-1_Emissive.png'),
+                // loadTexture(emissionTextures, 4, 'textures/Textures_gologram_ver2/Gologram-5/5gologram_low_Gologram-1_Emissive.png'),
+                // loadTexture(emissionTextures, 5, 'textures/Textures_gologram_ver2/Gologram-6/6gologram_low_Gologram-1_Emissive.png'),
+                // loadTexture(emissionTextures, 6, 'textures/Textures_gologram_ver2/Gologram-7/7gologram_low_Gologram-1_Emissive.png'),
+                // loadTexture(emissionTextures, 7, 'textures/Textures_gologram_ver2/Gologram-8/8gologram_low_Gologram-1_Emissive.png'),
+                // loadTexture(emissionTextures, 8, 'textures/Textures_gologram_ver2/Gologram-9/9gologram_low_Gologram-1_Emissive.png'),
+                // loadTexture(emissionTextures, 9, 'textures/Textures_gologram_ver2/Gologram-10/10gologram_low_Gologram-1_Emissive.png'),
+                // loadTexture(emissionTextures, 10, 'textures/Textures_gologram_ver2/Gologram-11/11gologram_low_Gologram-1_Emissive.png'),
+                // loadTexture(emissionTextures, 11, 'textures/Textures_gologram_ver2/Gologram-12/12gologram_low_Gologram-1_Emissive.png'),
+                // loadTexture(emissionTextures, 12, 'textures/Textures_gologram_ver2/Gologram-13/13gologram_low_Gologram-1_Emissive.png'),
+                // loadTexture(emissionTextures, 13, 'textures/Textures_gologram_ver2/Gologram-14/14gologram_low_Gologram-1_Emissive.png'),
             ]);
 
             console.log(modelViewer.availableAnimations);
@@ -148,7 +148,7 @@
             console.log(randomNumber);
             const randomAnswer = answers[randomNumber];
             applyTexture(baseColorTextures, 'baseColor', randomNumber);
-            applyTexture(emissionTextures, 'emission', randomNumber);
+            applyTexture(emissionTextures, 'emission', 0);
 
             document.getElementById("question").value = "";
 
