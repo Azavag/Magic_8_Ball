@@ -47,19 +47,6 @@
         let currentAnimation = "Snake.Start";
 
         modelViewer.addEventListener("load", async () => {
-
-            // Проверяем поддержку AR
-            // async function checkARSupport() {
-            //     const supportsAR = await modelViewer.canActivateAR;
-            //     if (supportsAR) {
-            //         arButton.classList.remove("hidden"); // Показываем кнопку
-            //     }
-            // }
-
-            // // Вызываем функцию при загрузке страницы
-            // checkARSupport();
-
-
             modelViewer.scale = '30 30 30';
 
             material = modelViewer.model.materials[1];
@@ -69,8 +56,6 @@
                 const texture = await modelViewer.createTexture(filePath);
                 dictionary[index] = texture;
             };
-            // Вызываем функцию при загрузке страницы
-            checkARSupport();
             // Загрузка текстур
             await Promise.all([
                 loadTexture(baseColorTextures, 0, 'textures/Textures_gologram_ver2/Gologram-1/1gologram_low_Gologram-1_BaseColor.png'),
