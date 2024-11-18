@@ -28,7 +28,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; /* Отправляем model-viewer ниже других элементов */
+    z-index: 1;
+    /* Отправляем model-viewer ниже других элементов */
 }
 
 #error {
@@ -40,28 +41,31 @@ body {
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
     transition: opacity 0.3s;
-  }
-  #error.hide {
+}
+
+#error.hide {
     opacity: 0;
     visibility: hidden;
     transition: visibility 2s, opacity 1s 1s;
-  }
+}
 
 #input-section {
     position: absolute;
-    bottom: 20px; /* Расположение внизу экрана */
-    left: 50%; /* Центровка по горизонтали */
+    bottom: 20px;
+    /* Располагаем input-section внизу */
+    left: 50%;
+    /* Центровка по горизонтали */
     transform: translateX(-50%);
-    width: 90%; /* Ширина 90% экрана на маленьких устройствах */
-    max-width: 600px; /* Максимальная ширина на больших экранах */
-    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
-    padding: 10px; /* Отступы внутри блока */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Легкая тень */
-    border-radius: 10px; /* Скругленные углы */
+    width: 90%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-sizing: border-box; /* Учитываем отступы в размерах */
+    box-sizing: border-box;
 }
 
 #question {
@@ -110,21 +114,28 @@ body {
 
 #ar-button {
     position: absolute;
-    bottom: calc(100% + 10px); /* Располагаем кнопку над input-section с отступом */
-    right: 10px; /* Прикрепляем к правому краю input-section */
-    background-color: #007bff; /* Цвет фона кнопки */
-    color: #fff; /* Цвет текста */
+    bottom: calc(100% + 10px);
+    /* Располагаем кнопку над input-section с отступом */
+    right: 10px;
+    /* Прикрепляем к правому краю input-section */
+    background-color: #007bff;
+    /* Цвет фона кнопки */
+    color: #fff;
+    /* Цвет текста */
     border: none;
     border-radius: 5px;
     padding: 10px 15px;
     font-size: 16px;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Тень для кнопки */
-    z-index: 10; /* Поверх остальных элементов */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Тень для кнопки */
+    z-index: 10;
+    /* Поверх остальных элементов */
 }
 
 .hidden {
-    display: none; /* Полностью скрывает элемент */
+    display: none;
+    /* Полностью скрывает элемент */
 }
 
 #ar-button:hover {
