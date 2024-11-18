@@ -14,9 +14,10 @@
         alt="A 3D model of snake 8 ball" ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral"
         touch-action="none" shadow-intensity="0" camera-target="50m 2m 0.75m" field-of-view="10deg" scale="1 1 1" ar>
 
+        <button id="ar-button" slot="ar-button">AR-режим</button>
+        <div id="error" class="hide">AR is not supported on this device</div>
+
         <div id="input-section">
-            <button id="ar-button" slot="ar-button">AR-режим</button>
-            <div id="error" class="hide">AR is not supported on this device</div>
             <input type="text" id="question" placeholder="Задайте вопрос здесь...">
             <div id="buttons">
                 <button class="btn clear" onclick="clearInput()">Очистить</button>
@@ -24,20 +25,19 @@
             </div>
         </div>
 
-        
     </model-viewer>
 
     <script>
         const modelViewer = document.querySelector("model-viewer");
 
         modelViewer.addEventListener('ar-status', (event) => {
-          if(event.detail.status === 'failed'){
-            const error = document.querySelector("#error");
-            error.classList.remove('hide');
-            error.addEventListener('transitionend',(event) => {
-              error.classList.add('hide');
-            });
-          }
+            if (event.detail.status === 'failed') {
+                const error = document.querySelector("#error");
+                error.classList.remove('hide');
+                error.addEventListener('transitionend', (event) => {
+                    error.classList.add('hide');
+                });
+            }
         });
 
         let baseColorTextures = {};  // Словарь для хранения baseColor текстур
