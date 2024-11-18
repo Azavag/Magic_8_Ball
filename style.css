@@ -50,10 +50,11 @@ body {
 
 #input-section {
     position: absolute;
-    bottom: 20px; /* Отступ от нижнего края экрана */
+    bottom: 40px; /* Отступ от нижнего края экрана */
     left: 50%;
     transform: translateX(-50%);
     width: 90%; /* Ширина области ввода */
+    max-width: 800px;
     background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
     color: #fff; /* Цвет текста */
     padding: 10px 15px;
@@ -73,6 +74,13 @@ body {
     margin-top: 10px;
     font-size: 16px;
     box-sizing: border-box;
+}
+
+#answer {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
 }
 
 #buttons {
@@ -100,12 +108,7 @@ body {
     opacity: 0.9;
 }
 
-#answer {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-}
+
 
 #ar-button {
     background-color: #007bff;
