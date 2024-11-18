@@ -22,7 +22,7 @@
             <div id="buttons">
                 <button class="btn clear" onclick="clearInput()">Очистить</button>
                 <button class="btn ask" onclick="askQuestion()">Спросить</button>
-            </div>       
+            </div>
         </div>
     </model-viewer>
 
@@ -79,15 +79,16 @@
             ]);
 
             console.log(modelViewer.availableAnimations);
-            modelViewer.animationName = currentAnimation;
-            await modelViewer.updateComplete;
-            modelViewer.play({ repetitions: 1 })
+
         });
+
+        modelViewer.animationName = currentAnimation;
+        await modelViewer.updateComplete;
+        modelViewer.play({ repetitions: 1 })
 
         // Обработчик завершения анимации
         modelViewer.addEventListener('finished', (event) => {
             console.log("Конец анимации");
-            console.log(currentAnimation);
             if (currentAnimation === "Snake.Start") {
                 // После завершения Snake.Start запускаем Snake.Idle
                 currentAnimation = "Snake.Idle";
@@ -118,18 +119,18 @@
 
 
         const answers = [
-            "Принимай решения сердцем, пусть тебе и кажется, что это костыли",
-            "Автоматизируй свои внутренние системы и тогда все будет сильно проще",
-            "Ты создашь что-то, что будет стабильно работать. Даже с багами",
+            "Принимай решения сердцем, пусть тебе и кажется, что это костыли.",
+            "Автоматизируй свои внутренние системы и тогда все будет сильно проще.",
+            "Ты создашь что-то, что будет стабильно работать. Даже с багами.",
             "Жизнь – не большие данные, все сильно проще. Расслабься!",
             "Что бы не пришлось делать, команда всегда поддержит!",
-            "Всех денег мира не заработать, но тебя ждет реальный кейс",
+            "Всех денег мира не заработать, но тебя ждет реальный кейс.",
             "Судьба отказоустойчива к твоим желаниям. Делай – все получится!",
             "Твой интеллект сильнее, чем искусственный. Ты придумаешь все, что нужно!",
-            "Клиент всегда прав, и ты тоже. Все, кто не верил в тебя, ошибались",
+            "Клиент всегда прав, и ты тоже. Все, кто не верил в тебя, ошибались.",
             "Пройти новые испытания будет проще, чем проверку службы безопасности. Рискуй!",
-            "Ты будешь самым важным. Никто не попытается тебя импортозаместить",
-            "Твоя голова будет центром экспертизы. Умные мысли будут преследовать тебя",
+            "Ты будешь самым важным. Никто не попытается тебя импортозаместить.",
+            "Твоя голова будет центром экспертизы. Умные мысли будут преследовать тебя.",
             "Технология – это ценность. Твоя главная технология – ты сам. Все получится!",
             "Ты внедришь в свою жизнь самый лучший проект. Все изменится к лучшему!",
         ];
@@ -149,7 +150,6 @@
 
         function clearInput() {
             document.getElementById("question").value = "";
-            document.getElementById("answer").textContent = "";
         }
 
         function askQuestion() {
@@ -159,7 +159,6 @@
             applyTexture(baseColorTextures, 'baseColor', randomNumber);
             applyTexture(emissionTextures, 'emission', randomNumber);
 
-            document.getElementById("answer").textContent = randomAnswer;
             document.getElementById("question").value = "";
 
             // Проигрывание анимации шара           
