@@ -87,21 +87,18 @@
         // Обработчик завершения анимации
         modelViewer.addEventListener('finished', async (event) => {
             console.log("Конец анимации");
-            if (currentAnimation === "Snake.Start") {
+            if (currentAnimation === "Snake.Start" ) {
                 // После завершения Snake.Start запускаем Snake.Idle
+                console.log("Переход к idle");
                 currentAnimation = "Snake.Idle";
                 modelViewer.animationName = currentAnimation;
-                await modelViewer.updateComplete;
-                modelViewer.play({ repetitions: 1 });
+                modelViewer.play();
 
-                // Разблокируем кнопку действия
-                // actionButton.disabled = false;
             } else if (currentAnimation === "Snake.BallCatching") {
                 // После Snake.BallCatching возвращаемся к Snake.Idle
                 currentAnimation = "Snake.Idle";
                 modelViewer.animationName = currentAnimation;
-                await modelViewer.updateComplete;
-                modelViewer.play({ repetitions: 1 });
+                modelViewer.play();
             }
         });
 
@@ -152,7 +149,7 @@
             document.getElementById("question").value = "";
         }
 
-        function askQuestion() {
+        async function askQuestion() {
             const randomNumber = Math.floor(Math.random() * answers.length);
             console.log(randomNumber);
             const randomAnswer = answers[randomNumber];
@@ -162,10 +159,10 @@
             document.getElementById("question").value = "";
 
             // Проигрывание анимации шара           
-            modelViewer.animationName = "Snake.BallCatching";
-            modelViewer.pause(); // Перезапускаем анимацию
-            modelViewer.currentTime = 0;
-            modelViewer.play();
+            currentAnimation = "Snake.BallCatching";
+            modelViewer.animationName = currentAnimation;
+            await modelViewer.updateComplete;
+            modelViewer.play({ repetitions: 1 })
         }
     </script>
 
