@@ -85,17 +85,11 @@
         });
 
         // Обработчик завершения анимации
-        modelViewer.addEventListener('finished', async (event) => {
+        modelViewer.addEventListener('finished', (event) => {
             console.log("Конец анимации");
-            if (currentAnimation === "Snake.Start" ) {
+            if (currentAnimation === "Snake.Start" || currentAnimation === "Snake.BallCatching") {
                 // После завершения Snake.Start запускаем Snake.Idle
                 console.log("Переход к idle");
-                currentAnimation = "Snake.Idle";
-                modelViewer.animationName = currentAnimation;
-                modelViewer.play();
-
-            } else if (currentAnimation === "Snake.BallCatching") {
-                // После Snake.BallCatching возвращаемся к Snake.Idle
                 currentAnimation = "Snake.Idle";
                 modelViewer.animationName = currentAnimation;
                 modelViewer.play();
