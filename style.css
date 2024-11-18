@@ -11,7 +11,7 @@ html {
 
 body {
     margin: 0;
-    padding: 0;
+    padding: env(safe-area-inset-bottom, 20px);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -50,12 +50,12 @@ body {
 
 #input-section {
     position: absolute;
-    bottom: env(safe-area-inset-bottom, 20px); /* Учитываем безопасную зону снизу */
+    bottom: 20px; /* Расположение внизу экрана */
     left: 50%; /* Центровка по горизонтали */
     transform: translateX(-50%);
     width: 90%; /* Ширина 90% экрана на маленьких устройствах */
     max-width: 600px; /* Максимальная ширина на больших экранах */
-    background-color: rgba(255, 255, 255, 0.9); /* Светлый фон с прозрачностью */
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
     padding: 20px; /* Отступы внутри блока */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Легкая тень */
     border-radius: 10px; /* Скругленные углы */
