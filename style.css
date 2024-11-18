@@ -6,7 +6,7 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100hv;
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
 }
@@ -20,7 +20,7 @@ html {
     display: block;
     max-width: 100%;
     /* Устанавливает максимальную ширину */
-    margin: 0 auto;
+    margin: 0 0 0 0;
     /* Центрирует модель */
 }
 
