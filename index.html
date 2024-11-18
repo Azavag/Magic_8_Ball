@@ -143,7 +143,7 @@
             document.getElementById("question").value = "";
         }
 
-        async function askQuestion() {
+        function askQuestion() {
             const randomNumber = Math.floor(Math.random() * answers.length);
             console.log(randomNumber);
             const randomAnswer = answers[randomNumber];
@@ -155,8 +155,7 @@
             // Проигрывание анимации шара           
             currentAnimation = "Snake.BallCatching";
             modelViewer.animationName = currentAnimation;
-            await modelViewer.updateComplete;
-            modelViewer.play({ repetitions: 1 });
+            modelViewer.play();
         }
     </script>
 
