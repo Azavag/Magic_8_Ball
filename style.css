@@ -50,20 +50,19 @@ body {
 
 #input-section {
     position: absolute;
-    bottom: 40px; /* Отступ от нижнего края экрана */
-    left: 50%;
+    bottom: env(safe-area-inset-bottom, 20px); /* Учитываем безопасную зону снизу */
+    left: 50%; /* Центровка по горизонтали */
     transform: translateX(-50%);
-    width: 90%; /* Ширина области ввода */
-    max-width: 800px;
-    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
-    color: #fff; /* Цвет текста */
-    padding: 10px 15px;
-    border-radius: 12px;
-    z-index: 2; /* Область ввода поверх model-viewer */
+    width: 90%; /* Ширина 90% экрана на маленьких устройствах */
+    max-width: 600px; /* Максимальная ширина на больших экранах */
+    background-color: rgba(255, 255, 255, 0.9); /* Светлый фон с прозрачностью */
+    padding: 20px; /* Отступы внутри блока */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Легкая тень */
+    border-radius: 10px; /* Скругленные углы */
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box; /* Учитываем отступы в размерах */
 }
 
 #question {
