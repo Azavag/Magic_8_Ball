@@ -158,8 +158,8 @@
             modelViewer.pause;
             modelViewer.currentTime = 0;
             modelViewer.animationName = currentAnimation;
-            modelViewer.play({ repetitions: 1 });
             await modelViewer.updateComplete;
+            modelViewer.play({ repetitions: 1 });
         }
     </script>
 
