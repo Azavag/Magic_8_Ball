@@ -56,7 +56,7 @@ body {
     width: 90%; /* Ширина 90% экрана на маленьких устройствах */
     max-width: 600px; /* Максимальная ширина на больших экранах */
     background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
-    padding: 20px; /* Отступы внутри блока */
+    padding: 10px; /* Отступы внутри блока */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Легкая тень */
     border-radius: 10px; /* Скругленные углы */
     display: flex;
@@ -122,6 +122,10 @@ body {
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Тень для кнопки */
     z-index: 10; /* Поверх остальных элементов */
+}
+
+.hidden {
+    display: none; /* Полностью скрывает элемент */
 }
 
 #ar-button:hover {
