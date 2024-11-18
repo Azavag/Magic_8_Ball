@@ -148,7 +148,7 @@
             console.log(randomNumber);
             const randomAnswer = answers[randomNumber];
             applyTexture(baseColorTextures, 'baseColor', randomNumber);
-            applyTexture(emissionTextures, 'emission', 0);
+            applyTexture(emissionTextures, 'emission', randomNumber);
 
             document.getElementById("question").value = "";
 
