@@ -10,26 +10,22 @@
 </head>
 
 <body>
-    <model-viewer id="model-viewer" src="models/Snake_ver_6(with_plane).glb" ios-src="models/Snake_ios_ver1.usdz"
+    <model-viewer id="model-viewer" src="models/Snake_ver_7(NewYear).glb" ios-src="models/Snake_ios_ver2.usdz"
         alt="A 3D model of snake 8 ball" ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral"
-        touch-action="none" shadow-intensity="0" camera-target="50m 2m 0.75m" field-of-view="10deg" scale="1 1 1"
-        ar>
+        touch-action="none" shadow-intensity="0" camera-target="50m 2m 0.75m" field-of-view="10deg" scale="1 1 1" ar>
 
         <button id="ar-button" slot="ar-button">AR-режим</button>
         <div id="error" class="hide">AR is not supported on this device</div>
 
-    </model-viewer>
-
-
-
-    <div id="input-section">
-        <input type="text" id="question" placeholder="Задайте вопрос здесь...">
-        <div id="buttons">
-            <button class="btn clear" onclick="clearInput()">Очистить</button>
-            <button class="btn ask" onclick="askQuestion()">Спросить</button>
+        <div id="input-section">
+            <input type="text" id="question" placeholder="Задайте вопрос здесь...">
+            <div id="buttons">
+                <button class="btn clear" onclick="clearInput()">Очистить</button>
+                <button class="btn ask" onclick="askQuestion()">Спросить</button>
+            </div>
+            <div id="answer"></div>
         </div>
-        <div id="answer"></div>
-    </div>
+    </model-viewer>
 
     <script>
         const modelViewer = document.querySelector("model-viewer");
@@ -40,7 +36,7 @@
         let currentAnimation = "Snake.Start";
 
         modelViewer.addEventListener("load", async () => {
-            modelViewer.scale = '20 20 20';
+            modelViewer.scale = '25 25 25';
 
             material = modelViewer.model.materials[1];
 
@@ -112,6 +108,7 @@
 
         modelViewer.addEventListener('ar-status', (event) => {
             if (event.detail.status === 'session-started') {
+                modelViewer.animationName = "Snake.NewYear"
                 console.log('Переход в AR режим начат');
                 //Поменять на новую анимацию
             } else if (event.detail.status === 'session-ended') {
