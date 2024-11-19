@@ -73,6 +73,8 @@
                 loadTexture(baseColorTextures, 11, 'textures/Textures_gologram_ver2/Gologram-12/12gologram_low_Gologram-1_BaseColor.png'),
                 loadTexture(baseColorTextures, 12, 'textures/Textures_gologram_ver2/Gologram-13/13gologram_low_Gologram-1_BaseColor.png'),
                 loadTexture(baseColorTextures, 13, 'textures/Textures_gologram_ver2/Gologram-14/14gologram_low_Gologram-1_BaseColor.png'),
+                loadTexture(baseColorTextures, 14, 'textures/Textures_gologram_ver2/Gologram-NG/NGgologram_low_Gologram-1_BaseColor.png'),
+
 
                 loadTexture(emissionTextures, 0, 'textures/Textures_gologram_ver2/Gologram-1/1gologram_low_Gologram-1_Emissive.png'),
                 // loadTexture(emissionTextures, 1, 'textures/Textures_gologram_ver2/Gologram-2/2gologram_low_Gologram-1_Emissive.png'),
@@ -111,11 +113,15 @@
 
         modelViewer.addEventListener('ar-status', (event) => {
             if (event.detail.status === 'session-started') {
-                modelViewer.animationName = "Snake.NewYear"
                 console.log('Переход в AR режим начат');
+                applyTexture(baseColorTextures, 'baseColor', 14);
+                modelViewer.pause();
+                modelViewer.animationName = "Snake.NewYear"
+                modelViewer.play();
                 //Поменять на новую анимацию
             } else if (event.detail.status === 'session-ended') {
                 console.log('AR режим завершён');
+                modelViewer.scale = '10 10 10';
             }
         });
 
@@ -156,6 +162,8 @@
         }
 
         function launchArMode() {
+            applyTexture(baseColorTextures, 'baseColor', 14);
+            modelViewer.pause();
             modelViewer.animationName = "Snake.NewYear"
             modelViewer.play();
         }
