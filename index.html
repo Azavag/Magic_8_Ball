@@ -3,21 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Magic 8</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <model-viewer id="model-viewer" src="models/Snake_ver_7(NewYear).glb" ios-src="models/Snake_ios_ver2.usdz"
+    <model-viewer id="model-viewer" src="models/Snake_ver_9.glb" ios-src="models/Snake_ios_ver4.usdz"
         alt="A 3D model of snake 8 ball" ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral"
         touch-action="none" shadow-intensity="0" camera-target="50m 2m 0.75m" field-of-view="10deg" scale="1 1 1" ar>
-
-        <button id="ar-button" slot="ar-button">AR-режим</button>
+     
         <div id="error" class="hide">AR is not supported on this device</div>
 
         <div id="input-section">
+            <button id="ar-button" slot="ar-button">AR-режим</button>
             <input type="text" id="question" placeholder="Задайте вопрос здесь...">
             <div id="buttons">
                 <button class="btn clear" onclick="clearInput()">Очистить</button>
