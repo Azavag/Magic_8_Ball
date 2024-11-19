@@ -48,9 +48,9 @@
         let currentAnimation = "Snake.Start";
 
         modelViewer.addEventListener("load", async () => {
-            modelViewer.scale = '20 20 20';
+            modelViewer.scale = '10 10 10';
 
-            material = modelViewer.model.materials[1];
+            material = modelViewer.model.materials[0];
 
             // Функция для загрузки текстуры и сохранения её в указанный словарь с индексом
             const loadTexture = async (dictionary, index, filePath) => {
