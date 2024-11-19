@@ -12,7 +12,7 @@
 <body>
     <model-viewer id="model-viewer" src="models/Snake_ver_9.glb" ios-src="models/Snake_ios_ver4.usdz"
         alt="A 3D model of snake 8 ball" ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral"
-        touch-action="none" shadow-intensity="0" camera-target="5m 2m 0m" scale="1 1 1" ar>
+        touch-action="none" shadow-intensity="0" camera-target="5m 2m 0m" scale="1 1 1" animation-name="Snake.NewYear" autoplay ar>
 
         <button id="ar-button" slot="ar-button" onclick="launchArMode()">AR-режим</button>
         <div id="error" class="hide">AR is not supported on this device</div>
@@ -93,6 +93,7 @@
             ]);
 
             console.log(modelViewer.availableAnimations);
+            modelViewer.pause();
             modelViewer.animationName = currentAnimation;
             await modelViewer.updateComplete;
             modelViewer.play({ repetitions: 1 });
