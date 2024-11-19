@@ -26,7 +26,7 @@ body {
     top: 0;
     left: 0;
     z-index: 1;
-    background-color: chocolate;
+    background-color: #E2752B;
     /* Отправляем model-viewer ниже других элементов */
 }
 
