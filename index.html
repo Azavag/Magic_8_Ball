@@ -12,13 +12,13 @@
 <body>
     <model-viewer id="model-viewer" src="models/Snake_ver_9.glb" ios-src="models/Snake_ios_ver4.usdz"
         alt="A 3D model of snake 8 ball" ar-modes="scene-viewer quick-look" ar-scale="auto" tone-mapping="neutral"
-        touch-action="none" shadow-intensity="0" camera-target = "5m 2m 0m" scale="1 1 1" ar>
-        
-        <button id="ar-button" slot="ar-button">AR-режим</button>
+        touch-action="none" shadow-intensity="0" camera-target="5m 2m 0m" scale="1 1 1" ar>
+
+        <button id="ar-button" slot="ar-button" onclick="launchArMode()">AR-режим</button>
         <div id="error" class="hide">AR is not supported on this device</div>
 
         <div id="input-section">
-           
+
             <input type="text" id="question" placeholder="Задайте вопрос здесь...">
             <div id="buttons">
                 <button class="btn clear" onclick="clearInput()">Очистить</button>
@@ -48,7 +48,7 @@
         let currentAnimation = "Snake.Start";
 
         modelViewer.addEventListener("load", async () => {
-             modelViewer.scale = '3.5 3.5 3.5';
+            modelViewer.scale = '3.5 3.5 3.5';
 
             material = modelViewer.model.materials[0];
 
@@ -153,6 +153,11 @@
 
         function clearInput() {
             document.getElementById("question").value = "";
+        }
+
+        function launchArMode() {
+            modelViewer.animationName = "Snake.NewYear"
+            modelViewer.play();
         }
 
         async function askQuestion() {
